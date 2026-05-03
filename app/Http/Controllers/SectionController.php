@@ -7,59 +7,22 @@ use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        $section = Section::all();
+        return view('backend.section.section', compact('section'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'section' => 'required|max:50|unique:sections,section'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Section $section)
-    {
-        //
-    }
+        Section::create([
+            'section' => $request->section
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Section $section)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Section $section)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Section $section)
-    {
-        //
+        return back()->with('success', 'Section Added Successfully');
     }
 }

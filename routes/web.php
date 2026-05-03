@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolClassController;
+use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/store-class', [SchoolClassController::class, 'store'])
         ->name('store-class');
+        /*sections*/
+    Route::get('/section', [SectionController::class, 'create'])->name('section');
+    Route::post('/section', [SectionController::class, 'store'])->name('store-section');
 
     /* Profile (Breeze default) */
     Route::get('/profile', [ProfileController::class, 'edit'])

@@ -24,7 +24,7 @@
 <div class="sidebar">
     <a href="{{ route('dashboard') }}">Dashboard</a>
     <a href="{{ route('class') }}">Add Class</a>
-    <a href="#">Add Section</a>
+    <a href="{{ route('section') }}">Add Section</a>
     <a href="#">Add Session</a>
     <a href="#">Add Student</a>
 </div>
