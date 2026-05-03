@@ -7,59 +7,18 @@ use Illuminate\Http\Request;
 
 class SessionYearController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    public function create(){
+        $Sessions=SessionYear::all();
+        return view('backend.session.sessionyear', compact('Sessions')) ;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    public function store(Request $request){
+        $request->validate([
+            'std_session' => 'required|max:50|unique:session_years,sessionyear' ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(SessionYear $sessionYear)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SessionYear $sessionYear)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SessionYear $sessionYear)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SessionYear $sessionYear)
-    {
-        //
+            SessionYear::create([
+                'sessionyear'=>$request->std_session
+            ]);
+            return back()->with('success', 'Session Added Successfully');
     }
 }

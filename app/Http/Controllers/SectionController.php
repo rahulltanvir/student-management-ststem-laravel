@@ -23,6 +23,6 @@ class SectionController extends Controller
             'section' => $request->section
         ]);
 
-        return back()->with('success', 'Section Added Successfully');
+        return back()->with('success', 'Session Added Successfully');
     }
 }

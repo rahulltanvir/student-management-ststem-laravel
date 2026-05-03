@@ -20,7 +20,7 @@
         title: 'Success!',
         text: "{{ session('success') }}",
         confirmButtonColor: '#16a34a',
-        timer: 2000,
+        // timer: 2000,
         timerProgressBar: true
     });
 </script>
