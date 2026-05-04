@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
 
 /* add- student*/
     Route::get('/add-student',[StudentController::class, 'create'])->name('add-student');
+    Route::get('/all-student',[StudentController::class, 'list'])->name('all-student');
 
     
 

@@ -12,7 +12,7 @@
             <div class="card p-4">
                 <h5 style="text-align:center">Add Student</h5>
 
-                <form action="#" method="POST">
+                <form action="" method="POST">
                     @csrf
 
                     <label>Name:</label>

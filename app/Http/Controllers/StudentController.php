@@ -11,4 +11,7 @@ class StudentController extends Controller
     public function create(){
         return view('backend.students.studends');
     }
+    public function list(){
+        return view('backend.studentlist.studentlist');
+    }
 }
