@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SessionYearController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,10 +39,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/section', [SectionController::class, 'store'])->name('store-section');
 
     /*session*/
-    route::get('/session-year',[SessionYearController::class, 'create'])->name('session-year');
-    route::post('/session-year',[SessionYearController::class, 'store'])->name('session-year');
+    Route::get('/session-year',[SessionYearController::class, 'create'])->name('session-year');
+    Route::post('/session-year',[SessionYearController::class, 'store'])->name('session-year');
 
+/* add- student*/
+    Route::get('/add-student',[StudentController::class, 'create'])->name('add-student');
 
+    
 
     /* Profile (Breeze default) */
     Route::get('/profile', [ProfileController::class, 'edit'])

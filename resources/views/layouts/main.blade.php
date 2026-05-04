@@ -26,7 +26,7 @@
     <a href="{{ route('class') }}">Add Class</a>
     <a href="{{ route('section') }}">Add Section</a>
     <a href="{{ route('session-year') }}">Add Session</a>
-    <a href="#">Add Student</a>
+    <a href="{{ route('add-student') }}">Add Student</a>
 </div>
 
 <!-- Dynamic Content -->

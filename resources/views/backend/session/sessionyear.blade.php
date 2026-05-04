@@ -38,7 +38,7 @@
                         required
                     >
 
-                    @error('std_session')
+                    @error('add Session')
                         <small class="text-danger">{{ $message }}</small>
                     @enderror
 
