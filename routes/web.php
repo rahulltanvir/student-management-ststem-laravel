@@ -43,8 +43,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/session-year',[SessionYearController::class, 'store'])->name('session-year');
 
 /* add- student*/
-    Route::get('/add-student',[StudentController::class, 'create'])->name('add-student');
-    Route::get('/all-student',[StudentController::class, 'list'])->name('all-student');
+    Route::get('/students', [StudentController::class, 'list'])->name('students.list');
+
+    Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+
+    Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
     
 
