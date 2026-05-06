@@ -24,6 +24,23 @@
         timerProgressBar: true
     });
 </script>
+<script>
+function confirmDelete(id) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "This data will be deleted permanently!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a34a",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('delete-form-' + id).submit();
+        }
+    });
+}
+</script>
 @endif
                 @endif
 
@@ -33,7 +50,7 @@
                     <input
                         class="form-control mb-2"
                         type="text"
-                        name="class_name"
+                        name="add_class"
                         placeholder="Add class"
                         required
                     >
@@ -74,15 +91,25 @@
                                 <td>{{ $class->class_name }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
-                                        <a class="btn btn-info btn-sm" href="#">
+                                        <a class="btn btn-info btn-sm" href="{{ route('edit', $class->id) }}">
                                             Edit
                                         </a>
 
-                                        <a class="btn btn-danger btn-sm"
-                                           href="#"
-                                           onclick="return confirm('Are you sure?')">
+                                        <form id="delete-form-{{ $class->id }}"
+                                          action="{{ route('class.delete', $class->id) }}"
+                                          method="POST"
+                                          style="display:inline;">
+
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="button"
+                                            class="btn btn-danger btn-sm"
+                                            onclick="confirmDelete({{ $class->id }})">
                                             Delete
-                                        </a>
+                                        </button>
+
+                                    </form>
                                     </div>
                                 </td>
                             </tr>

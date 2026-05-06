@@ -13,9 +13,9 @@ class StudentController extends Controller
     
     public function create(){
          $classes = SchoolClass::all();
-         $Sections = Section::all();
-         $SessionYears = SessionYear::all();
-        return view('backend.students.studends', compact('classes','Sections','SessionYears'));
+         $sections = Section::all();
+         $sessionYears = SessionYear::all();
+        return view('backend.students.studends', compact('classes','sections','sessionYears'));
     }
  public function store(Request $request)
     {

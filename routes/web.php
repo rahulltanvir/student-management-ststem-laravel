@@ -31,9 +31,13 @@ Route::middleware(['auth'])->group(function () {
     /* Class Module */
     Route::get('/class', [SchoolClassController::class, 'create'])
         ->name('class');
-
+    // Route::resource('classes', SchoolClassController::class);
     Route::post('/store-class', [SchoolClassController::class, 'store'])
         ->name('store-class');
+    Route::get('/edit/{id}', [SchoolClassController::class, 'edit'])->name('edit');
+    Route::put('/class/update/{id}', [SchoolClassController::class, 'update'])->name('class.update');
+    Route::delete('/class/delete/{id}', [SchoolClassController::class, 'destroy'])->name('class.delete');
+
         /*sections*/
     Route::get('/section', [SectionController::class, 'create'])->name('section');
     Route::post('/section', [SectionController::class, 'store'])->name('store-section');
@@ -62,6 +66,12 @@ Route::middleware(['auth'])->group(function () {
         ->name('profile.destroy');
 });
 
+// index()   → list
+// create()  → form
+// store()   → insert
+// edit()    → edit form
+// update()  → update
+// destroy() → delete
 /*
 |--------------------------------------------------------------------------
 | Breeze Auth Routes

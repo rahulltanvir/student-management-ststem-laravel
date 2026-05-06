@@ -55,7 +55,7 @@
                     <label>Section:</label>
                     <select name="std_section" class="form-control mb-2">
                         <option value="">Select Section</option>
-                        @foreach($Sections as $section)
+                        @foreach($sections as $section)
                             <option value="{{ $section->id }}">{{ $section->section }}</option>
                         @endforeach
                     </select>
@@ -63,7 +63,7 @@
                     <label>Session:</label>
                     <select name="std_session" class="form-control mb-2">
                         <option value="">Select Session</option>
-                        @foreach($SessionYears as $session)
+                        @foreach($sessionYears as $session)
                             <option value="{{ $session->id }}">{{ $session->sessionyear }}</option>
                         @endforeach
                     </select>
