@@ -23,6 +23,26 @@ class SectionController extends Controller
             'section' => $request->section
         ]);
 
-        return back()->with('success', 'Session Added Successfully');
+        return back()->with('success', 'Section Added Successfully');
+    }
+
+    public function edit($id){
+        $section=Section::findOrFail($id);
+        return view('backend.editsection.edit', compact('section'));
+    }
+
+    public function update(Request $request, $id){
+        $section = Section::findOrFail($id);
+        $request->validate([
+            'up_section'=> 'required|max:50|unique:sections,section,' .$id ] );
+
+            $section->update([
+                'section'=>$request->up_section
+            ]);
+            return redirect()->route('section')->with('success', 'Updated Successfully');
+    }
+    public function destroy($id){
+        Section::findOrFail($id)->delete();
+        return back()->with('success', 'Deleted Successfully');
     }
 }

@@ -29,11 +29,9 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard');
 
     /* Class Module */
-    Route::get('/class', [SchoolClassController::class, 'create'])
-        ->name('class');
+    Route::get('/class', [SchoolClassController::class, 'create'])->name('class');
     // Route::resource('classes', SchoolClassController::class);
-    Route::post('/store-class', [SchoolClassController::class, 'store'])
-        ->name('store-class');
+    Route::post('/store-class', [SchoolClassController::class, 'store'])->name('store-class');
     Route::get('/edit/{id}', [SchoolClassController::class, 'edit'])->name('edit');
     Route::put('/class/update/{id}', [SchoolClassController::class, 'update'])->name('class.update');
     Route::delete('/class/delete/{id}', [SchoolClassController::class, 'destroy'])->name('class.delete');
@@ -41,6 +39,10 @@ Route::middleware(['auth'])->group(function () {
         /*sections*/
     Route::get('/section', [SectionController::class, 'create'])->name('section');
     Route::post('/section', [SectionController::class, 'store'])->name('store-section');
+    Route::get('/section/edit/{id}', [SectionController::class, 'edit'])->name('edit-section');
+    Route::put('/section/update/{id}',[SectionController::class, 'update'])->name('section.update');
+    Route::delete('/section/delete/{id}',[SectionController::class, 'destroy'])->name('section.delete');
+
 
     /*session*/
     Route::get('/session-year',[SessionYearController::class, 'create'])->name('session-year');

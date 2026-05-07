@@ -68,21 +68,31 @@
                     </thead>
 
                     <tbody>
-                        @forelse($section as $key => $section_name)
+                        @forelse($section as $key => $section_data)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $section_name->section }}</td>
+                                <td>{{ $section_data->section }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-2">
-                                        <a class="btn btn-info btn-sm" href="#">
+                                        <a class="btn btn-info btn-sm" href="{{ route('edit-section', $section_data->id) }}">
                                             Edit
                                         </a>
 
-                                        <a class="btn btn-danger btn-sm"
-                                           href="#"
-                                           onclick="return confirm('Are you sure?')">
+                                         <form id="delete-form-{{ $section_data->id }}"
+                                          action="{{ route('section.delete', $section_data->id) }}"
+                                          method="POST"
+                                          style="display:inline;">
+
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="button"
+                                            class="btn btn-danger btn-sm"
+                                            onclick="confirmDelete({{$section_data->id }})">
                                             Delete
-                                        </a>
+                                        </button>
+
+                                    </form>
                                     </div>
                                 </td>
                             </tr>
@@ -102,5 +112,21 @@
     </div>
 
 </div>
+<script>
+function confirmDelete(id) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "This data will be deleted permanently!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#16a34a",
+        cancelButtonColor: "#d33",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('delete-form-' + id).submit();
+        }
+    });
+}
+</script>
 
 @endsection
