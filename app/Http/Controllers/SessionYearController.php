@@ -35,9 +35,7 @@ class SessionYearController extends Controller
        $session_data->update([
         'sessionyear'=>$request->up_session
        ]);
-    //    $section->update([
-    //             'section'=>$request->up_section
-    //         ]);
+ 
         return redirect()->route('session-year')->with('success','Session Update Successfully');
     }
 
