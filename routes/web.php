@@ -46,7 +46,10 @@ Route::middleware(['auth'])->group(function () {
 
     /*session*/
     Route::get('/session-year',[SessionYearController::class, 'create'])->name('session-year');
-    Route::post('/session-year',[SessionYearController::class, 'store'])->name('session-year');
+    Route::post('/session-year',[SessionYearController::class, 'store'])->name('store.session');
+    Route::get('/session/edit/{id}', [SessionYearController::class, 'edit'])->name('edit.session');
+    Route::put('/session/update/{id}',[SessionYearController::class, 'update'])->name('update.session');
+    Route::delete('/session/delete/{id}',[SessionYearController::class, 'destroy'])->name('session.delete');
 
 /* add- student*/
     Route::get('/students', [StudentController::class, 'list'])->name('students.list');
