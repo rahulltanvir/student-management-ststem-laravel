@@ -18,7 +18,7 @@
             <div class="card shadow-sm border-0 text-white bg-primary">
                 <div class="card-body">
                     <h5>Total Students</h5>
-                    <h2 class="fw-bold">6</h2>
+                    <h2 class="fw-bold">{{ $totalStudent }}</h2>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="card shadow-sm border-0 text-white bg-success">
                 <div class="card-body">
                     <h5>Active Students</h5>
-                    <h2 class="fw-bold">5</h2>
+                    <h2 class="fw-bold">{{ $ActiveStudent }}</h2>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
             <div class="card shadow-sm border-0 text-white bg-danger">
                 <div class="card-body">
                     <h5>Inactive Students</h5>
-                    <h2 class="fw-bold">5</h2>
+                    <h2 class="fw-bold">{{ $InactiveStudent }}</h2>
                 </div>
             </div>
         </div>

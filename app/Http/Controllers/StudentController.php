@@ -90,4 +90,5 @@ public function list()
         Student::findOrFail($id)->delete();
         return back()->with('success', 'Student updated successfully!');
     }
+   
 }

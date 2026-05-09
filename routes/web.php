@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SectionController;
@@ -24,9 +25,8 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
 
     /* Dashboard */
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     /* Class Module */
     Route::get('/class', [SchoolClassController::class, 'create'])->name('class');
